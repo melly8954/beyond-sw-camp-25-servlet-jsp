@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    배포 서술자
+        - 배포 서술자는 웹 애플리케이션의 기본적인 설정을 작성하는 파일이다.
+-->
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <!-- 서블릿 등록 -->
+    <servlet>
+        <servlet-name>first</servlet-name>
+        <servlet-class>com.beyond.servlet.FirstServlet</servlet-class>
+    </servlet>
+
+    <!--
+        서블릿 매핑
+        http://localhost:8080/servlet/first
+     -->
+    <servlet-mapping>
+        <servlet-name>first</servlet-name>
+        <url-pattern>/first</url-pattern>
+    </servlet-mapping>
+</web-app>
