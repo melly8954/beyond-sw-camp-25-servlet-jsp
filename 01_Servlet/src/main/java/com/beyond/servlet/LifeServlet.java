@@ -8,9 +8,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.Serial;
 
 @WebServlet("/life")
 public class LifeServlet extends HttpServlet {
+    @Serial
+    private static final long serialVersionUID = 2750396848932308516L;
+
     public LifeServlet() {
         System.out.println("LifeServlet 객체 생성");
     }

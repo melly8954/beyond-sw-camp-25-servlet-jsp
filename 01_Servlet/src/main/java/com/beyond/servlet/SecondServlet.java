@@ -8,10 +8,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serial;
 import java.time.LocalDateTime;
 
 @WebServlet("/second")
 public class SecondServlet extends HttpServlet {
+    @Serial
+    private static final long serialVersionUID = 959694951149178258L;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println(request.getContextPath());

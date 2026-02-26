@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serial;
 import java.time.LocalDateTime;
 
 /*
@@ -21,6 +22,9 @@ import java.time.LocalDateTime;
         - @WebServlet 어노테이션으로 서블릿을 등록 및 매핑한다.
  */
 public class FirstServlet extends HttpServlet {
+    @Serial
+    private static final long serialVersionUID = -9221195916823435707L;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("사용자로부터 GET 요청을 받음..");
