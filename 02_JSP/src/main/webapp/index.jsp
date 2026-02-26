@@ -27,6 +27,15 @@
     </ol>
 
     <a href="/jsp/views/elements/">View details</a><br>
-    <a href="/jsp/views/directive/">View details</a>
+    <a href="/jsp/views/directive/">View details</a><br>
+
+    <h3>3. JSP 내장 객체</h3>
+    <p>
+        JSP가 서블릿으로 변환될 때 자바 파일에 자동으로 추가되는 객체들을 내장 객체라고 한다.
+        <br>
+        즉, JSP 페이지 내부에서 개발자가 직접 선언하지 않아도 바로 사용이 가능한 객체이다.
+    </p>
+
+    <a href="/jsp/views/objects">View details</a><br>
 </body>
 </html>
