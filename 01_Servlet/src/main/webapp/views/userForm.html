@@ -7,7 +7,8 @@
 <body>
     <h2> 개인 정보 입력</h2>
 
-    <form action="">
+<!--    <form action="/servlet/method" method="get">-->
+    <form action="/servlet/method" method="post">
         <!-- label 방식1 -->
         <label for="name">이름 : </label>
         <input type="text" id="name" name="name">
@@ -21,12 +22,23 @@
         <label>성별 : </label>
         <!-- label 방식2 -->
         <label>
-            <input type="radio" name="gender" value="남자"> 남자
+            <input type="radio" name="gender" value="남자" checked> 남자
         </label>
-
         <label>
             <input type="radio" name="gender" value="여자"> 여자
         </label>
+        <br>
+
+        <label>좋아하는 음식 : </label>
+        <label><input type="checkbox" name="food" value="한식" checked> 한식 </label>
+        <label><input type="checkbox" name="food" value="중식"> 중식 </label>
+        <label><input type="checkbox" name="food" value="일식"> 일식 </label>
+        <label><input type="checkbox" name="food" value="양식"> 양식 </label>
+        <label><input type="checkbox" name="food" value="분식"> 분식 </label>
+
+        <br><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="취소">
     </form>
 </body>
 </html>
