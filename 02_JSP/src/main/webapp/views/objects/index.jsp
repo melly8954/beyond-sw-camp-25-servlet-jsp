@@ -19,7 +19,7 @@
         웹 브라우저의 요청 정보를 가지고 있는 객체이다.
     </p>
 
-    <h4>1). 헤더</h4>
+    <h4>1). 헤더와 관련된 메서드</h4>
     <%
         Enumeration<String> headerNames = request.getHeaderNames();
     %>
@@ -40,6 +40,38 @@
     <%
         }
     %>
+    </table>
+
+    <h4> 2). URL / URI, 요청 방식과 관련된 메서드</h4>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>값</th>
+        </tr>
+        <tr>
+            <td>프로토콜</td>
+            <td><%= request.getProtocol()%></td>
+        </tr>
+        <tr>
+            <td>요청 방식</td>
+            <td><%= request.getMethod()%></td>
+        </tr>
+        <tr>
+            <td>URL</td>
+            <td><%= request.getRequestURL()%></td>
+        </tr>
+        <tr>
+            <td>URI</td>
+            <td><%= request.getRequestURI()%></td>
+        </tr>
+        <tr>
+            <td>Context Path</td>
+            <td><%= request.getContextPath()%></td>
+        </tr>
+        <tr>
+            <td>Query String</td>
+            <td><%= request.getQueryString()%></td>
+        </tr>
     </table>
 </body>
 </html>

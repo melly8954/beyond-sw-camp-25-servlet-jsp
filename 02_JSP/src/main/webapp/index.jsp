@@ -26,8 +26,15 @@
         <li>표현식 태그</li>
     </ol>
 
+    <!-- ContextPath를 /jsp 로 설정한 경우 -->
+    <%--
     <a href="/jsp/views/elements/">View details</a><br>
     <a href="/jsp/views/directive/">View details</a><br>
+    --%>
+
+    <!-- ContextPath를 실행 시점에서 얻는 경우 -->
+    <a href="<%= request.getContextPath()%>/views/elements/">View details</a><br>
+    <a href="<%= request.getContextPath()%>/views/directive/">View details</a><br>
 
     <h3>3. JSP 내장 객체</h3>
     <p>
@@ -36,6 +43,6 @@
         즉, JSP 페이지 내부에서 개발자가 직접 선언하지 않아도 바로 사용이 가능한 객체이다.
     </p>
 
-    <a href="/jsp/views/objects">View details</a><br>
+    <a href="<%= request.getContextPath()%>/views/objects">View details</a><br>
 </body>
 </html>
