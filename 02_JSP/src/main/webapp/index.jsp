@@ -12,6 +12,7 @@
     <p>
         JSP는 HTML 코드 안에서 스크립트 형태로 자바 언어를 사용하여 동적인 페이지를 생성한다.
     </p>
+    <br><hr>
 
     <h3>2. JSP 요소(Elements)</h3>
     <p>
@@ -35,6 +36,7 @@
     <!-- ContextPath를 실행 시점에서 얻는 경우 -->
     <a href="<%= request.getContextPath()%>/views/elements/">View details</a><br>
     <a href="<%= request.getContextPath()%>/views/directive/">View details</a><br>
+    <br><hr>
 
     <h3>3. JSP 내장 객체</h3>
     <p>
@@ -43,6 +45,21 @@
         즉, JSP 페이지 내부에서 개발자가 직접 선언하지 않아도 바로 사용이 가능한 객체이다.
     </p>
 
+    user : <%= session.getAttribute("user") %>
+    <br>
+
     <a href="<%= request.getContextPath()%>/views/objects">View details</a><br>
+    <br><hr>
+
+    <h3>4. 영역 객체</h3>
+    <p>
+        - JSP 내장 객체 중 pageContext, request, session, application은 데이터를 공유할 수 있는 각각의 유효 범위(Scope)를 가진다.
+        <br>
+        - 공유되는 데이터를 속성(Attribute)이라고 하며, 속성이 유지되는 범위를 영역(Scope)이라고 한다.
+        <br>
+
+        <a href="<%= request.getContextPath()%>/views/scopes">View details</a><br>
+
+    </p>
 </body>
 </html>
