@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+
+<c:set var="contextPath" value="${ pageContext.request.contextPath }"/>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,7 +19,35 @@
     </p>
 
     <h4>1). EL 내장 객체</h4>
+    <!-- Servlet의 포워드를 통해서 /el 요청을 받는다. 따라서, "/views/el/el.jsp" 로 이동한다. -->
     <a href=<%= request.getContextPath()%>"/el">View details</a>
 
+    <h4>2). EL 연산자</h4>
+    <a href="${ pageContext.request.contextPath }/views/el/elOperators.jsp">View details</a>
+
+    <h2>2. JSP Action Tag</h2>
+    <p>
+        JSP에서 자바 코드를 직접 입력하지 않고 특정 작업을 수행하는데 사용하는 태그이다.
+    </p>
+
+    <h4>1). 표준 액션 태그</h4>
+    <p>
+        JSP에서 기본으로 제공하는 액션 태그로 별도의 라이브러리 설치 없이 바로 사용할 수 있다.
+    </p>
+    <a href="${ pageContext.request.contextPath }/views/actiontag/include.jsp">View details</a><br>
+    <a href="${ pageContext.request.contextPath }/views/actiontag/forward.jsp">View details</a>
+
+    <h2>3. JSTL (JSP Standard Tag Library)</h2>
+    <p>
+        JSP 페이지에서 자주 사용되는 코드들을 사용하기 쉽게 태그로 만들어 표준으로 제공한다.
+    </p>
+
+    <h4>1). JSTL Core Library</h4>
+    <p>
+        변수와 URL, 조건문, 반복문 등의 로직과 관련된 액션 태그를 제공한다.
+    </p>
+
+    <%-- <a href="${ pageContext.request.contextPath }/views/jstl/core.jsp">View details</a> --%>
+    <a href="${ contextPath }/views/jstl/core.jsp">View details</a>
 </body>
 </html>
