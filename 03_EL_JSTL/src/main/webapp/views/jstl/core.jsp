@@ -1,3 +1,6 @@
+<%@ page import="com.beyond.eljstl.Student" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <html lang="ko">
@@ -95,5 +98,87 @@
             <b>num1과 num2는 같다.</b>
         </c:otherwise>
     </c:choose>
+
+    <h3>4. 반복 처리 태그</h3>
+    <h4>1). c:foreach 액션 태그</h4>
+    <p>
+        자바의 for 문에 해당하는 역할을 하는 액션 태그이다.
+    </p>
+
+    <h5>1-1). 자바의 for 구문처럼 사용하기</h5>
+    <!-- 이떄, step 속성의 값은 0보다 작거나 같을 수 없다. -->
+    <c:forEach var="i" begin="1" end="6" step="2">
+        <%-- ${ i } --%>
+        <%-- 태그 안에도 EL 적용 가능 --%>
+        <h${i}>반복 확인 문장</h>
+    </c:forEach>
+
+    <%-- 반복이 종료되면 반복에 사용했던 변수도 삭제된다. --%>
+    i : ${i}
+
+    <h5>1-2). 자바의 향상된 for 구문처럼 사용하기</h5>
+    <c:forEach var="color" items="${colors}">
+        colors 종류 : ${ color }<br>
+    </c:forEach>
+
+    <h5>1-3). 학생 목록 조회</h5>
+    <%
+        List<Student> students = new ArrayList<>();
+
+        students.add(new Student("홍길동", 34, 70, 70));
+        students.add(new Student("이몽룡", 24, 80, 80));
+        students.add(new Student("성춘향", 24, 85, 85));
+        students.add(new Student("심청이", 20, 90, 90));
+
+        request.setAttribute("students", students);
+    %>
+
+    <table border="1">
+        <tr>
+            <th>인덱스</th>
+            <th>순번</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>수학 점수</th>
+            <th>영어 점수</th>
+        </tr>
+        <c:forEach var="student" items="${ students }" varStatus="status">
+        <tr>
+            <td>${ status.index }</td>
+            <td>${ status.count }</td>
+            <td>${ student.name }</td>
+            <td>${ student.age }</td>
+            <td>${ student.math }</td>
+            <td>${ student.eng }</td>
+        </tr>
+        </c:forEach>
+    </table>
+
+    <h4>2). c:forTokens 액션 태그</h4>
+    <p>
+        문자열에 포함된 구분자를 통해 토큰을 분리해 반복을 수행하는 액션 태그이다.
+    </p>
+
+    <ol>
+        <c:forTokens var="device" items="컴퓨터,노트북 에어컨/TV,냉장고.세탁기" delims=",/. ">
+            <li>${ device }</li>
+        </c:forTokens>
+    </ol>
+
+    <h3>5. c:url 액션 태그</h3>
+    <p>
+        URL을 생성하고 쿼리스트링을 미리 설정하는 액션 태그이다.
+    </p>
+
+    <c:url var="url" value="/views/el/elParam.jsp">
+        <c:param name="pName" value="이어폰 17 프로"/>
+        <c:param name="pCount" value="4"/>
+        <c:param name="option" value="코스믹 오렌지"/>
+        <c:param name="option" value="256GB"/>
+    </c:url>
+
+    URL : ${ url }
+    <br><br>
+    <a href="${ url }">View details</a>
 </body>
 </html>

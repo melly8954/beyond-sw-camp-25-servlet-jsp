@@ -46,8 +46,20 @@
     <p>
         변수와 URL, 조건문, 반복문 등의 로직과 관련된 액션 태그를 제공한다.
     </p>
-
     <%-- <a href="${ pageContext.request.contextPath }/views/jstl/core.jsp">View details</a> --%>
     <a href="${ contextPath }/views/jstl/core.jsp">View details</a>
+
+    <h4>2). JSTL Formatting Library</h4>
+    <p>
+        날짜와 시간, 숫자 데이터의 출력 형식을 지정할 때 사용하는 액션 태그를 제공한다.
+    </p>
+    <a href="${ contextPath }/views/jstl/formatting.jsp">View details</a>
+
+    <h4>3). JSTL Function Library</h4>
+    <p>
+        문자열 처리와 관련된 함수들을 EL 구문에서 사용할 수 있게 제공하는 라이브러리이다.
+    </p>
+
+    <a href="${ contextPath }/views/jstl/fuctions.jsp">View details</a>
 </body>
 </html>
