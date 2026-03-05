@@ -20,7 +20,7 @@ public class User {
     private String phone;
     private String email;
     private String address;
-    private String hobby;
+    private String hobbies;
     private String status;
     private Date createdAt;
     private Date updatedAt;

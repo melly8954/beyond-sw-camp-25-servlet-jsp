@@ -13,17 +13,25 @@
 <body>
     <h2>Hello World</h2>
 
-    <form action="${ contextPath }/auth/login" method="post">
-        <label for="username">아이디: </label>
-        <input type="text" name="username" id="username" required/><br>
+    <c:if test="${ empty loginUser }">
+        <form action="${ contextPath }/auth/login" method="post">
+            <label for="username">아이디: </label>
+            <input type="text" name="username" id="username" required/><br>
 
-        <label for="password">비밀번호: </label>
-        <input type="password" name="password" id="password" required/><br><br>
+            <label for="password">비밀번호: </label>
+            <input type="password" name="password" id="password" required/><br><br>
 
-        <input type="button" onclick="alert('미구현');" value="회원가입"/>
-        <input type="submit" value="로그인"/>
-    </form>
+            <input type="button" onclick="location.assign('${ contextPath }/auth/sign-up');" value="회원가입"/>
+            <input type="submit" value="로그인"/>
+        </form>
+    </c:if>
 
+    <c:if test="${ not empty loginUser }">
+        ${ loginUser.nickname }님 안녕하세요.
 
+        <form action="${ contextPath }/auth/logout" method="post">
+            <input type="submit" value="로그아웃"/>
+        </form>
+    </c:if>
 </body>
 </html>

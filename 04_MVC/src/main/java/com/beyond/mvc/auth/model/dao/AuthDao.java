@@ -4,4 +4,5 @@ import com.beyond.mvc.auth.model.vo.User;
 
 public interface AuthDao {
     User getUserById(String username);
+    int insertUser(User user);
 }
