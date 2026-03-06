@@ -27,7 +27,7 @@
     </c:if>
 
     <c:if test="${ not empty loginUser }">
-        ${ loginUser.nickname }님 안녕하세요.
+        <a href="${ contextPath }/auth/profile">${ loginUser.nickname }</a>님 안녕하세요.
 
         <form action="${ contextPath }/auth/logout" method="post">
             <input type="submit" value="로그아웃"/>

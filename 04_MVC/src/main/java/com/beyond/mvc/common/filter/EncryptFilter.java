@@ -23,8 +23,7 @@ import java.io.IOException;
     서블릿 필터를 등록 및 매핑하는 방법
         - web.xml 파일에 필터를 등록해서 사용할 수 있다.
         - @WebFilter 어노테이션으로 필터를 등록해서 사용할 수 있다.
- */
-
+*/
 @WebFilter(filterName = "encryptFilter", urlPatterns = { "/auth/login", "/auth/sign-up" })
 public class EncryptFilter implements Filter {
     @Override
