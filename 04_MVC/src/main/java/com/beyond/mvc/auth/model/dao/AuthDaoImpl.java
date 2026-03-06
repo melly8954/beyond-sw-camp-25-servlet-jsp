@@ -127,4 +127,26 @@ public class AuthDaoImpl implements AuthDao {
 
         return result;
     }
+
+    @Override
+    public int updateUserStatus(int no, String status, Connection connection) {
+        int result = 0;
+        PreparedStatement pstmt = null;
+
+        String query = "UPDATE user SET status=? WHERE no=?";
+
+        try {
+            pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, status);
+            pstmt.setInt(2, no);
+
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close(pstmt);
+        }
+
+        return result;
+    }
 }
