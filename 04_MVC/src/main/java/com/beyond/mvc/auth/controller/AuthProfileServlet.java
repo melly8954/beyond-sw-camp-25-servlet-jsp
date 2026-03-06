@@ -43,5 +43,16 @@ public class AuthProfileServlet extends HttpServlet {
         loginUser.setHobbies(hobbies);
 
         result = authService.save(loginUser);
+
+        if (result > 0) {
+            // 회원가입 성공
+            request.setAttribute("msg", "회원 정보 수정이 완료되었습니다.");
+        } else {
+            // 회원가입 실패
+            request.setAttribute("msg", "회원 정보 수정을 실패하였습니다.");
+        }
+
+        request.setAttribute("location", "/auth/profile");
+        request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
     }
 }

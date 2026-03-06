@@ -26,11 +26,4 @@ public class User {
     private String status;
     private Date createdAt;
     private Date updatedAt;
-
-    public void updateProfile(String nickname, String phone, String email, String address) {
-        this.nickname = nickname;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-    }
 }

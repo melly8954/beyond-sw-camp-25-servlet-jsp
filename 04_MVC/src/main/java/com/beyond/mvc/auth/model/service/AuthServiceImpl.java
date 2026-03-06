@@ -39,7 +39,31 @@ public class AuthServiceImpl implements AuthService {
         int result;
         Connection connection = getConnection();
 
-        result = authDao.insertUser(user, connection);
+        if (user.getNo() > 0) {
+            // update
+            result = authDao.updateUser(user, connection);
+        } else {
+            // insert
+            result = authDao.insertUser(user, connection);
+        }
+
+        if (result > 0) {
+            commit(connection);
+        } else {
+            rollback(connection);
+        }
+
+        close(connection);
+
+        return result;
+    }
+
+    @Override
+    public int delete(int no) {
+        int result;
+        Connection connection = getConnection();
+
+        result = authDao.deleteUser(no, connection);
 
         if (result > 0) {
             commit(connection);
